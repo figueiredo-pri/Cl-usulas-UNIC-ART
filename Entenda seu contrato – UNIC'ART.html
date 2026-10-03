@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Entenda seu contrato – UNIC'ART</title>
+<style>
+:root{--bg:#faf9f5;--card:#fff;--tx:#1f1e1d;--tx2:#5f5e5a;--bd:#e3e0d6;--ac:#7a4a21;--acbg:#f3e8dc;--wn:#fdf3dc;--wntx:#633806;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#1c1b19;--card:#262522;--tx:#f1efe8;--tx2:#b4b2a9;--bd:#3a3834;--ac:#e8b98a;--acbg:#3a2c20;--wn:#3b2f14;--wntx:#fac775}}
+:root[data-theme="dark"]{--bg:#1c1b19;--card:#262522;--tx:#f1efe8;--tx2:#b4b2a9;--bd:#3a3834;--ac:#e8b98a;--acbg:#3a2c20;--wn:#3b2f14;--wntx:#fac775}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;line-height:1.55}
+main{max-width:640px;margin:0 auto;padding:20px 16px 40px}
+h1{font-size:22px;font-weight:500;margin:0 0 4px}
+.sub{color:var(--tx2);font-size:14px;margin:0 0 20px}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:14px;margin-bottom:10px;overflow:hidden;opacity:0;transform:translateY(12px);animation:in .45s ease forwards}
+@keyframes in{to{opacity:1;transform:none}}
+.hd{width:100%;display:flex;align-items:center;gap:12px;padding:14px;background:none;border:0;color:inherit;font:inherit;text-align:left;cursor:pointer}
+.num{flex:none;width:34px;height:34px;border-radius:50%;background:var(--acbg);color:var(--ac);display:grid;place-items:center;font-weight:500;font-size:14px;transition:transform .3s}
+.t{flex:1;font-weight:500;font-size:15px}
+.t small{display:block;font-weight:400;color:var(--tx2);font-size:12px}
+.ch{flex:none;color:var(--tx2);transition:transform .3s}
+.card.open{border-color:var(--ac)}
+.card.open .ch{transform:rotate(180deg)}
+.card.open .num{transform:scale(1.1);background:var(--ac);color:var(--card)}
+.bd{max-height:0;overflow:hidden;transition:max-height .4s ease}
+.in{padding:0 14px 14px 60px;font-size:14px;color:var(--tx2)}
+.in p{margin:0 0 8px}
+.in ul{margin:0 0 8px;padding-left:18px}
+.in b{color:var(--tx);font-weight:500}
+.wn{background:var(--wn);color:var(--wntx);border-radius:8px;padding:8px 10px;font-size:13px}
+.foot{font-size:12px;color:var(--tx2);margin-top:20px}
+@media (prefers-reduced-motion:reduce){.card{animation:none;opacity:1;transform:none}.bd,.ch,.num{transition:none}}
+</style>
+</head>
+<body>
+<main>
+<h1>Entenda seu contrato</h1>
+<p class="sub">UNIC'ART · Marcenaria sob medida. Toque em cada cláusula para ver a explicação em linguagem simples.</p>
+<div id="list"></div>
+<p class="foot">Esta é uma explicação simplificada. Em caso de dúvida, vale o texto do contrato assinado.</p>
+</main>
+<script>
+var C=[
+["O objeto","Do que se trata","<p>Este contrato é para a <b>fabricação, entrega e instalação</b> de móveis feitos sob medida.</p><p>O projeto e o orçamento aprovados fazem parte do contrato. Se houver dúvida, o contrato vale para prazos, pagamentos e responsabilidades. O projeto vale para as especificações dos móveis.</p>"],
+["Preço e pagamento","Como e quando pagar","<p>O valor total está no contrato. O pagamento é feito em duas parcelas:</p><ul><li><b>60% de sinal</b> na aprovação do projeto e assinatura</li><li><b>40% na entrega</b>, ao concluir a instalação</li></ul><p>A empresa emite recibo de cada pagamento.</p>"],
+["Prazo de execução","Quanto tempo leva","<p>O prazo é definido para cada projeto e começa a contar quando acontecem as três coisas juntas:</p><ul><li>Projeto aprovado</li><li>Sinal pago</li><li>Medidas conferidas no local</li></ul><p>Há uma <b>tolerância</b> de alguns dias úteis para imprevistos de produção, sem ser considerada atraso. A empresa avisa com 10 dias úteis de antecedência a data da instalação.</p>"],
+["Obrigações da empresa","O que a empresa faz","<ul><li>Executa o móvel conforme o projeto aprovado</li><li>Usa os materiais combinados</li><li>Instala de forma correta e segura</li><li>Avisa por escrito se algo puder atrasar</li></ul>"],
+["Obrigações do cliente","O que você faz","<ul><li>Garante o acesso ao local</li><li>Deixa o ambiente livre e pronto</li><li>Paga nos prazos combinados</li><li>Entrega a planta elétrica e hidráulica, se tiver</li></ul><div class='wn'>Sem planta nem aviso sobre fios e canos escondidos, a empresa não responde por danos nessas partes, desde que tenha tomado os cuidados usuais.</div>"],
+["Atraso no pagamento","Se o cliente atrasar","<p>Multa de <b>2%</b> sobre o valor em atraso, mais juros de <b>1% ao mês</b>, proporcionais aos dias.</p><div class='wn'>Com mais de 10 dias úteis de atraso, a empresa pode pausar fabricação, entrega ou instalação. O prazo também pausa.</div><p style='margin-top:8px'>Os móveis seguem sendo da empresa até o pagamento total.</p>"],
+["Atraso da empresa","Se a empresa atrasar","<p>Passado o prazo mais a tolerância, por culpa só da empresa, o cliente pode notificá-la. Ela tem 5 dias úteis para justificar e apresentar um cronograma.</p><ul><li><b>Multa:</b> 0,5% do valor do contrato por semana de atraso, no máximo 5%. É descontada dos 40% finais.</li><li><b>Rescisão:</b> com mais de 30 dias úteis de atraso após a tolerância, o cliente pode desistir. Recebe de volta o que sobrar após descontar serviços feitos, materiais e custos comprovados, em até 30 dias úteis.</li><li><b>Devolução integral:</b> se o cliente quiser 100% de volta, a empresa retira os móveis e devolve o valor em até 30 dias úteis após a retirada.</li></ul>"],
+["Atrasos justificados","Quando o prazo é adiado","<p>O prazo é prorrogado se o atraso vier de:</p><ul><li>Mudanças pedidas pelo cliente</li><li>Atraso no pagamento</li><li>Local sem condições de instalação</li><li>Outros profissionais trabalhando no mesmo ambiente</li><li>Atraso comprovado de material específico do projeto</li><li>Força maior, como chuva forte ou enchente</li></ul><p>O ideal é o ambiente ficar livre só para a equipe de instalação.</p>"],
+["Serviços de terceiros","Vidraceiro, marmorista e outros","<p>A empresa pode indicar profissionais, mas a <b>contratação é direta e livre</b> pelo cliente.</p><p>A empresa não responde por prazo, preço, qualidade ou garantia desses terceiros, só pelo que ela mesma fornece. Atrasos deles seguem a regra dos atrasos justificados.</p>"],
+["Alterações no projeto","Mudou de ideia","<p>Qualquer mudança depois da aprovação deve ser <b>por escrito</b> e pode gerar custo extra e novo prazo, informados antes.</p><div class='wn'>Se as peças já estão em produção, a mudança só acontece com acordo da empresa e pagamento dos custos já feitos.</div>"],
+["Desistência","Se o cliente desistir","<p>Depois de aprovar o projeto, o cliente avisa por escrito. A empresa apura o que gastou e devolve o saldo restante em até 30 dias úteis.</p><p>Peças sob medida já prontas podem ser entregues mediante pagamento ou ficam com a empresa.</p><p>Quando cabível, vale o direito de arrependimento de 7 dias previsto no Código de Defesa do Consumidor.</p>"],
+["Entrega e aceite","Conferindo o resultado","<ul><li>Ao concluir, a empresa avisa o cliente</li><li>O cliente tem <b>5 dias úteis</b> para vistoriar e apontar pendências por escrito</li><li>A empresa corrige em prazo razoável</li><li>Sem manifestação no prazo, a entrega é considerada aceita</li></ul><div class='wn'>Pequenos ajustes não impedem o pagamento do saldo. Se o local não estiver disponível por mais de 30 dias após o aviso, o saldo é devido e a empresa guarda as peças.</div>"],
+["Garantia","Cobertura de 12 meses","<p><b>12 meses</b> contra defeitos de fabricação e de instalação, a partir do aceite. Vale junto com a garantia legal do consumidor.</p><p>Para usar: avise por escrito. A empresa avalia em até 10 dias úteis e repara em prazo razoável.</p><div class='wn'>Não cobre mau uso, umidade ou infiltração, reparos de terceiros sem autorização, sobrecarga, desgaste natural e fatores externos.</div>"],
+["Limites de responsabilidade","O que a empresa não cobre","<ul><li>Problemas estruturais ou antigos do imóvel, não aparentes e não informados</li><li>Instalações elétricas ou hidráulicas inadequadas do imóvel</li><li>Medidas passadas incorretamente pelo cliente. Se a própria empresa mediu, ela responde</li></ul>"],
+["Proteção de dados","Seus dados pessoais","<p>Seus dados são usados só para executar o contrato e cumprir a lei, conforme a LGPD. Não são compartilhados, exceto quando necessário para a execução do contrato.</p>"],
+["Regras gerais","Para fechar","<ul><li>Vale a lei brasileira, em especial o Código Civil e o Código de Defesa do Consumidor</li><li>Tolerância não significa abrir mão de direitos</li><li>Mudanças no contrato são por escrito, assinadas pelas duas partes</li><li>As comunicações podem ser por e-mail ou aplicativo de mensagem</li><li>O contrato é assinado com duas testemunhas e serve como título para cobrança</li><li>O foro é o da cidade do cliente</li></ul>"]
+];
+var L=document.getElementById('list'),h='';
+C.forEach(function(c,i){h+='<div class="card" style="animation-delay:'+(i*60)+'ms"><button class="hd" aria-expanded="false"><span class="num">'+(i+1)+'</span><span class="t">'+c[0]+'<small>'+c[1]+'</small></span><span class="ch" aria-hidden="true">&#9662;</span></button><div class="bd"><div class="in">'+c[2]+'</div></div></div>'});
+L.innerHTML=h;
+L.addEventListener('click',function(e){var b=e.target.closest('.hd');if(!b)return;var card=b.parentNode,body=card.querySelector('.bd'),open=card.classList.toggle('open');b.setAttribute('aria-expanded',open);body.style.maxHeight=open?body.scrollHeight+'px':'0'});
+</script>
+</body>
+</html>
